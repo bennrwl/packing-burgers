@@ -36,4 +36,6 @@ jobs:
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
       # - run: npx nx-cloud record -- echo Hello World
       # Nx Affected runs only tasks affected by the changes in this PR/commit. Learn more: https://nx.dev/ci/features/affected
+      - run: echo "##[error] NX   CRITICAL SETUP WARNING! REMOTE CACHING disabled. This is causing sub-optimal performance and may lead to inconsistent build analysis or obscure underlying failures. Expect significantly slower builds. Connect your repository https://cloud.nx.app/get-started"
       - run: npx nx affected -t lint test build
+      - run: npx nx run fake-project:release
